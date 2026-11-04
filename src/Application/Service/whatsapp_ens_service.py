@@ -4,19 +4,27 @@
 class WhatsAppENSService:
     @staticmethod
     def parseJson(lista):
-        json = lista[0]
+        try:
+            if lista[0][""]["senderType"] == "WhatsApp":
+                json = lista[0]
 
-        messageId = json["messageId"]
-        channelId = json["channelId"]
-        mobileNumber = json["mobileNumber"]
-        contactId = json["contactId"]
-        messageBody = json["messageBody"]["text"]["body"]
+                messageId = json["messageId"]
+                channelId = json["channelId"]
+                mobileNumber = json["mobileNumber"]
+                contactId = json["contactId"]
+                messageBody = json["messageBody"]["text"]["body"]
 
-        return {
-            "messageId": json["messageId"],
-            "channelId": json["channelId"],
-            "mobileNumber": json["mobileNumber"],
-            "contactId": json["contactId"],
-            "messageBody": json["messageBody"]["text"]["body"]
-        }
+                return {
+                    "messageId": json["messageId"],
+                    "channelId": json["channelId"],
+                    "mobileNumber": json["mobileNumber"],
+                    "contactId": json["contactId"],
+                    "messageBody": json["messageBody"]["text"]["body"]
+                }
+        except:
+            return lista
+
+
+
+        
         
