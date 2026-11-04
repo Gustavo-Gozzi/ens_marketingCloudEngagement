@@ -22,6 +22,7 @@ class WhatsAppENSService:
                     "messageBody": json["messageBody"]["text"]["body"]
                 }
         except:
+            print("Caiu no Except: ", lista)
             return lista
 
 
