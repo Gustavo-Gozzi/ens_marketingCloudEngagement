@@ -5,7 +5,7 @@ class WhatsAppENSService:
     @staticmethod
     def parseJson(lista):
         try:
-            if lista[0][""]["senderType"] == "WhatsApp":
+            if lista[0]["senderType"] == "WhatsApp":
                 json = lista[0]
 
                 messageId = json["messageId"]
@@ -14,13 +14,15 @@ class WhatsAppENSService:
                 contactId = json["contactId"]
                 messageBody = json["messageBody"]["text"]["body"]
 
-                return {
+                resposta = {
                     "messageId": json["messageId"],
                     "channelId": json["channelId"],
                     "mobileNumber": json["mobileNumber"],
                     "contactId": json["contactId"],
                     "messageBody": json["messageBody"]["text"]["body"]
                 }
+                print(resposta)
+                return resposta
         except:
             print("Caiu no Except: ", lista)
             return lista
