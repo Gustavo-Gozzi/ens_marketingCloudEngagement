@@ -1,5 +1,5 @@
 from src.Application.Controller.whatsapp_ens_controller import WhatsAppENSController
-
+from flask import Flask, request
 
 def register_routes(app):
 
