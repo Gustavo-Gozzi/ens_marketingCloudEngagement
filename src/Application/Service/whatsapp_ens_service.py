@@ -28,6 +28,10 @@ class WhatsAppENSService:
             return lista
 
 
-
+    @staticmethod
+    def get(token, challenge):
+        response = make_response(challenge, 200) 
+        response.mimetype = "text/plain" 
+        return response
         
         

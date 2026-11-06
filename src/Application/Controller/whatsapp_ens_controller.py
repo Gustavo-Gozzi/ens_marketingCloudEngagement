@@ -8,3 +8,7 @@ class WhatsAppENSController:
         response = WhatsAppENSService.parseJson(data)
 
         return make_response(jsonify(response))
+
+    @staticmethod
+    def get(token, challenge):
+        return WhatsAppENSService.get(token, challenge)
